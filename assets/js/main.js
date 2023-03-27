@@ -41,5 +41,3 @@ playButton.addEventListener('click', function () {
     console.log(rivalHand)
 
 });
-
-
