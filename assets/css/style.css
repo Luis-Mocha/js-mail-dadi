@@ -12,3 +12,8 @@
     display: block;
     width: 100%;
 }
+
+#resetButton {
+    width: 120px;
+    font-size: 12px;
+}

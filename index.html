@@ -4,16 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esercizio "js-mail-dadi"</title>
+    <title>Lucky Dice</title>
 
+    <!-- link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- link Bootstrap Css -->
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
     <!-- link css -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <main>
-        <div id="diceGame">
+    <main class="p-4">
+        <h1 class="text-center text-capitalize my-5">Benvenuto</h1>
+        <div id="validationDiv" class="container-sm">
+        <form action="" class="row">
+            <!-- email -->
+            <div class="form-floating mb-3 px-1 col-11">
+                <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+                <label for="floatingEmail">Email</label>
+            </div>
+            <!-- tooltip -->
+            <div class="text-center mb-3 col-1" type="button" data-bs-placement="top" data-toggle="tooltip" title="Email accettate: 'player1@gmail.com', 'player2@live.it', 'player3@gmail.com', 'player4@gmail.com', 'player5live.it'">
+                <i class="fa-solid fa-question"></i>
+            </div>
+
+            <!-- nome -->
+            <div class="form-floating mb-3 col-md-6 px-1">
+                <input type="text" class="form-control" id="floatingName" placeholder="Inserisci il tuo nome" required>
+                <label for="floatingName">Name</label>
+            </div>
+            <!-- cognome -->
+            <div class="form-floating mb-3 col-md-6 px-1">
+                <input type="text" class="form-control" id="floatingSurname" placeholder="Inserisci il tuo cognome" required>
+                <label for="floatingSurname">Surname</label>
+            </div>
+
+            <button type="submit" id="loginButton" class="col-6 col-md-4 col-lg-2 mx-auto mt-4">
+                LOGIN
+            </button>
+        </form>
+
+        </div>
+
+        <!-- DICE GAME -->
+        <div id="diceGame" class="d-none mt-5">
             <div id="playingField" class="d-flex justify-content-between align-items-center">
                 <div id="myHand" class="container-fluid player-hand">
                     <!-- <img src="./assets/img/dice-1.svg" alt="Immagine dado giocatore" class="dice-img"> -->
@@ -26,17 +60,23 @@
                 </div>
             </div>
             
-            <button id="playButton" class="mx-auto d-block">
-                Gioca!
+            <button id="playButton" class="mx-auto d-block mt-5">
+                Lancia il dado!
             </button>
         </div>
+
+        <!-- RESET BUTTON -->
+        <button id="resetButton" class="btn btn-danger fixed-bottom m-1">
+            Reset everything
+        </button>
         
     </main>
     
 
+     <!-- link js -->
+    <script src="./assets/js/main.js"></script>
     <!-- link Bootstrap Js -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js' integrity='sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN' crossorigin='anonymous'></script>
-    <!-- link js -->
-    <script src="./assets/js/main.js"></script>
+    
 </body>
 </html>
