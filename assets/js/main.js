@@ -1,10 +1,4 @@
 // DICE GAME
-/*
-const diceGameDiv = document.createElement('div');
-diceGameDiv.id = 'diceGame';
-// diceGameDiv.classList.add('container-md')
-document.querySelector("main").append(diceGameDiv);
-*/
 
 // Funzione per generare un numero casuale
 function randomNumber(min, max) {
