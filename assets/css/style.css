@@ -1,0 +1,14 @@
+.player-hand {
+    min-width: 100px;
+}
+
+@media screen and (min-width: 576px) {
+    .player-hand {
+        max-width: 225px;
+    };
+}
+
+.dice-img {
+    display: block;
+    width: 100%;
+}
