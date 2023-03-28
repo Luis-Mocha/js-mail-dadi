@@ -58,6 +58,15 @@ resetButton.addEventListener('click', function() {
 
 // DICE GAME
 
+let winDiv = document.querySelector('#winDiv');
+let lossDiv = document.querySelector('#lossDiv');
+let drawDiv = document.querySelector('#drawDiv');
+let numberGames = document.querySelector('#numberGames');
+
+let winCounter = 0;
+let lossCounter = 0;
+let drawCounter = 0;
+
 // Funzione per generare un numero casuale
 function randomNumber(min, max) {
     return Math.floor( Math.random() * max + min );        
@@ -66,7 +75,7 @@ function randomNumber(min, max) {
 // Tasto per giocare
 const playButton = document.querySelector('#playButton');
 
-
+// Funzione al click del play button
 playButton.addEventListener('click', function () {
 
     let myDice = randomNumber(1, 6);
@@ -74,18 +83,27 @@ playButton.addEventListener('click', function () {
     let outcomeDiv = document.querySelector('#outcome');
     console.log(myDice, rivalDice)
 
+    
+
     if (myDice > rivalDice) {
         console.log('Hai vinto');
         outcomeDiv.innerHTML = '<h2 class="text-center">Hai Vinto!</h2>';
+        winCounter += 1;
+
     }
     else if (myDice < rivalDice) {
         console.log('Hai perso');
         outcomeDiv.innerHTML = '<h2 class="text-center">Hai Perso!</h2>';
+        lossCounter += 1;
     }
     else {
         console.log('Pareggio!');
         outcomeDiv.innerHTML = '<h2 class="text-center">Pareggio!</h2>';
+        drawCounter += 1;
     };
+
+    console.log(winCounter, lossCounter, drawCounter)
+
 
     // My hand img
     let myHand = document.querySelector('#myHand');
@@ -97,6 +115,14 @@ playButton.addEventListener('click', function () {
     rivalHand.innerHTML =
     `<span class="d-block fw-semibold text-center text-uppercase mb-3">Computer dice</span>
     <img src="./assets/img/dice-${rivalDice}.svg" alt="Immagine dado giocatore" class="dice-img">`;
+
+    // stats
+    let gamesCounter = winCounter + lossCounter + drawCounter;
+    
+    winDiv.innerHTML = `Vittorie: ${winCounter}`;
+    lossDiv.innerHTML = `Sconfitte: ${lossCounter}`;
+    drawDiv.innerHTML = `Pareggi: ${drawCounter}`;
+    numberGames.innerHTML = `Partite Giocate: ${gamesCounter}`;
 
     // cambio la scritta sul bottone
     playButton.innerHTML = 'Prova ancora!';
