@@ -17,7 +17,7 @@ loginButton.addEventListener('click', function (invioForm) {
     const floatingName = document.querySelector('#floatingName').value;
     const floatingSurname = document.querySelector('#floatingSurname').value;
 
-
+    /*
     if (emailList.includes(emailValue)) {
         validationDiv.classList.add("d-none");
         diceGame.classList.remove("d-none")
@@ -26,9 +26,29 @@ loginButton.addEventListener('click', function (invioForm) {
     else {
         alert("E-MAIL NON VALIDA. NON HAI ACCESSO A QUESTO SERVIZIO - TORNA INDIETRO");
     }
+    */
+
+    // metodo con ciclo for e variabile di controllo
+    let controllo = false;
+    for (let i = 0; i < emailList.length; i++) {
+        if (emailList[i] == emailValue ) {
+            controllo = true;
+        }
+    }
+    
+    if (controllo == true) {
+        validationDiv.classList.add("d-none");
+        diceGame.classList.remove("d-none")
+        welcomeText.innerHTML = `Ciao ${floatingName} ${floatingSurname}`;
+    }
+    else {
+        alert("E-MAIL NON VALIDA. NON HAI ACCESSO A QUESTO SERVIZIO - TORNA INDIETRO");
+    }
+
 
 });
 
+// Bottone di reset
 const resetButton = document.querySelector('#resetButton');
 resetButton.addEventListener('click', function() {
     window.location.reload();
@@ -70,11 +90,13 @@ playButton.addEventListener('click', function () {
     // My hand img
     let myHand = document.querySelector('#myHand');
     myHand.innerHTML = 
-    `<img src="./assets/img/dice-${myDice}.svg" alt="Immagine dado giocatore" class="dice-img">`;
+    `<span class="d-block fw-semibold text-center text-uppercase mb-3">Your dice</span>
+    <img src="./assets/img/dice-${myDice}.svg" alt="Immagine dado giocatore" class="dice-img">`;
     // Rival Hand img
     let rivalHand = document.querySelector('#rivalHand');
-    rivalHand.innerHTML = 
-    `<img src="./assets/img/dice-${rivalDice}.svg" alt="Immagine dado giocatore" class="dice-img">`;
+    rivalHand.innerHTML =
+    `<span class="d-block fw-semibold text-center text-uppercase mb-3">Computer dice</span>
+    <img src="./assets/img/dice-${rivalDice}.svg" alt="Immagine dado giocatore" class="dice-img">`;
 
     // cambio la scritta sul bottone
     playButton.innerHTML = 'Prova ancora!';
