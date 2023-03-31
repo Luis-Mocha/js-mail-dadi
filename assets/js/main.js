@@ -69,8 +69,8 @@ let drawCounter = 0;
 
 // Funzione per generare un numero casuale
 function randomNumber(min, max) {
-    return Math.floor( Math.random() * max + min );        
- }
+    return Math.floor( Math.random() * (max - min + 1) + min );        
+};
 
 // Tasto per giocare
 const playButton = document.querySelector('#playButton');
